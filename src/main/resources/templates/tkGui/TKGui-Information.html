@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width = device-width, initial-scale = 1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Quản lý thông tin khách hàng</title>
+    <link rel="stylesheet" type="text/css" href="/css/home.css"/>
+</head>
+<body>
+<div class="header">
+    <div class="columnHeader">
+        <img src="/images/LogoDHTBank.jpg" alt="DHT Bank - Sustainable value"/>
+    </div>
+    <div class="columnHeader">
+        <h2 style="color: #ffd700">Ngân hàng Bưu chính Viễn thông DHT</h2>
+    </div>
+    <div class="columnHeader">
+        <div>
+            <h4 style="color: orange">Hỗ trợ trong nước: 0862 868 355 </h4>
+        </div>
+        <div>
+            <h4 style="color: orange">Hỗ trợ quốc tế: +84 862 868 355</h4>
+        </div>
+    </div>
+</div>
+
+<div class="column2Admin">
+    <div>
+        <h4 style="text-align: center">Thông tin TKGui</h4>
+    </div>
+    <div>
+        <table border="1px" style="width: 100%">
+            <tr>
+                <th>Ma Gui</th>
+                <th>Ma Nhan</th>
+                <th>So Tien</th>
+                <th>ngay Tao</th>
+            </tr>
+            <tr th:each="giaoDich, state : ${giaoDichGuis}">
+                <td th:text="${giaoDich.tkGui.ma}"> </td>
+                <td th:text="${giaoDich.tkNhan.ma}"> </td>
+                <td th:text="${giaoDich.soTien}"> </td>
+                <td th:text="${giaoDich.ngayTao}"> </td>
+                <!--                        |<a th:href="@{'/delete-customer?index='+${state.index}}">Xóa</a></td>-->
+            </tr>
+            <tr th:each="giaoDich, state : ${giaoDichNhans}">
+                <td th:text="${giaoDich.tkGui.ma}"> </td>
+                <td th:text="${giaoDich.tkNhan.ma}"> </td>
+                <td th:text="${giaoDich.soTien}"> </td>
+                <td th:text="${giaoDich.ngayTao}"> </td>
+                <!--                        |<a th:href="@{'/delete-customer?index='+${state.index}}">Xóa</a></td>-->
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
